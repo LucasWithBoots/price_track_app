@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import MenuButton from "../components/home/MenuButton";
@@ -6,7 +6,6 @@ import MenuSelectionBar from "../components/home/MenuSelectionBar";
 import SearchInput from "../components/home/SearchInput";
 import BackgroundGradient from "../components/layout/BackgroundGradient";
 import { IMenuSelectionBarItem } from "../interfaces/IMenuSelectionBar/IMenuSelectionBarItem";
-
 function Index() {
   const menuItems: IMenuSelectionBarItem[] = [
     { value: "home", label: "Home" },
@@ -16,6 +15,37 @@ function Index() {
   const [selectedItem, setSelectedItem] = useState<IMenuSelectionBarItem>(
     menuItems[0]
   );
+
+  const renderBlocks = () => {
+    switch (selectedItem.value) {
+      case "home":
+        return (
+          <>
+            <MenuButton
+              title={"Duis pharetra"}
+              subtitle={"Sapien at facilisis"}
+              icon={"cart-outline"}
+              navigate={"/AddItem"}
+            />
+            <MenuButton
+              title={"Nunc eu"}
+              subtitle={"Vestibulum ante"}
+              icon={"airplane-outline"}
+              navigate={"/AddItem"}
+            />
+          </>
+        );
+      case "products":
+        return (
+          <MenuButton
+            title={"Fusce ut"}
+            subtitle={"Aliquam accumsan"}
+            icon={"analytics-outline"}
+            navigate={"/AddItem"}
+          />
+        );
+    }
+  };
 
   return (
     <BackgroundGradient>
@@ -37,26 +67,7 @@ function Index() {
               handlePress={(item) => setSelectedItem(item)}
             />
           </View>
-          <View className="flex-row gap-1 flex-wrap ">
-            <MenuButton
-              title={"Duis pharetra"}
-              subtitle={"Sapien at facilisis"}
-              icon={"cart-outline"}
-              navigate={"/AddItem"}
-            />
-            <MenuButton
-              title={"Nunc eu"}
-              subtitle={"Vestibulum ante"}
-              icon={"airplane-outline"}
-              navigate={"/AddItem"}
-            />
-            <MenuButton
-              title={"Fusce ut"}
-              subtitle={"Aliquam accumsan"}
-              icon={"analytics-outline"}
-              navigate={"/AddItem"}
-            />
-          </View>
+          <View className="flex-row gap-1 flex-wrap">{renderBlocks()}</View>
           <View className="mt-7">
             <SearchInput />
           </View>

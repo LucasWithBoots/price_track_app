@@ -1,5 +1,5 @@
 import { IMenuSelectionBarItem } from "@/src/interfaces/IMenuSelectionBar/IMenuSelectionBarItem";
-import { FlatList, Text } from "react-native";
+import { FlatList, Text, TouchableOpacity } from "react-native";
 
 interface MenuSelectionBarProps {
   elements: IMenuSelectionBarItem[];
@@ -19,16 +19,17 @@ function MenuSelectionBar({
       className="flex-row mb-4 "
       data={elements}
       renderItem={({ item }) => (
-        <Text
-          className={`text-lg text-[white]  ${
-            selected.value === item.value
-              ? "font-poppins_bold"
-              : "font-poppins_regular"
-          }`}
-          onPress={() => handlePress(item)}
-        >
-          {item.label}
-        </Text>
+        <TouchableOpacity onPress={() => handlePress(item)}>
+          <Text
+            className={`text-lg text-[white]  ${
+              selected.value === item.value
+                ? "font-poppins_bold"
+                : "font-poppins_regular"
+            }`}
+          >
+            {item.label}
+          </Text>
+        </TouchableOpacity>
       )}
       keyExtractor={(item) => item.value}
     />
