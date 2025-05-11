@@ -50,6 +50,7 @@ export default function RootLayout() {
             fontSize: 20,
           },
           headerTintColor: "white",
+          headerShadowVisible: false,
         }}
       >
         <Stack.Screen

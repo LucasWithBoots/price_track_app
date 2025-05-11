@@ -7,7 +7,10 @@ interface ButtonPrimaryProps {
 
 function ButtonPrimary({ icon }: ButtonPrimaryProps) {
   return (
-    <TouchableOpacity className="bg-buttonPrimary rounded-full py-4 flex-row justify-center gap-3">
+    <TouchableOpacity
+      className="bg-buttonPrimary rounded-full py-4 flex-row justify-center gap-3 shadow-lg"
+      style={{ shadowColor: "#FF4D02" }}
+    >
       <Text className="text-[white] font-poppins_semibold text-lg">
         Lorem Ipsum
       </Text>

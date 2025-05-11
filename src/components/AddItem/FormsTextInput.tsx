@@ -7,7 +7,7 @@ interface FormsTextInputProps {
 
 function FormsTextInput({ icon }: FormsTextInputProps) {
   return (
-    <View className="bg-[#EAEEEF] rounded-lg flex-row items-center gap-2 pl-3 ">
+    <View className="bg-[#EAEEEF] rounded-lg flex-row items-center gap-2 pl-3 shadow-lg">
       <Ionicons name={icon} size={18} color="black" />
       <TextInput
         className="flex-1  h-16 font-poppins_medium text-base"

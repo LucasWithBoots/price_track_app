@@ -9,6 +9,7 @@ module.exports = {
   theme: {
     backgroundColor: {
       buttonPrimary: "#FF4D02",
+      buttonSecondary: "#02131A",
     },
     colors: {
       textPrimary: "#001F3F",
