@@ -1,11 +1,22 @@
+import { useState } from "react";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import MenuButton from "../components/home/MenuButton";
 import MenuSelectionBar from "../components/home/MenuSelectionBar";
 import SearchInput from "../components/home/SearchInput";
 import BackgroundGradient from "../components/layout/BackgroundGradient";
+import { IMenuSelectionBarItem } from "../interfaces/IMenuSelectionBar/IMenuSelectionBarItem";
 
 function Index() {
+  const menuItems: IMenuSelectionBarItem[] = [
+    { value: "home", label: "Home" },
+    { value: "products", label: "Products" },
+  ];
+
+  const [selectedItem, setSelectedItem] = useState<IMenuSelectionBarItem>(
+    menuItems[0]
+  );
+
   return (
     <BackgroundGradient>
       <SafeAreaView className="justify-between flex-1 mt-10">
@@ -14,13 +25,17 @@ function Index() {
             Lorem ipsum dolor sit amet,
           </Text>
           <Text className="text-[#ffffff5e] text-5xl leading-tight font-poppins_bold">
-            consectetur adipiscing
+            consectetur adipiscing.
           </Text>
         </View>
 
         <View className="mx-2">
           <View className="ml-2">
-            <MenuSelectionBar />
+            <MenuSelectionBar
+              elements={menuItems}
+              selected={selectedItem}
+              handlePress={(item) => setSelectedItem(item)}
+            />
           </View>
           <View className="flex-row gap-1 flex-wrap ">
             <MenuButton

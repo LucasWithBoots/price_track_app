@@ -1,39 +1,37 @@
-import { ScrollView, Text } from "react-native";
+import { IMenuSelectionBarItem } from "@/src/interfaces/IMenuSelectionBar/IMenuSelectionBarItem";
+import { FlatList, Text } from "react-native";
 
-interface MenuSelectionBar {}
+interface MenuSelectionBarProps {
+  elements: IMenuSelectionBarItem[];
+  selected: IMenuSelectionBarItem;
+  handlePress: (item: IMenuSelectionBarItem) => void;
+}
 
-function MenuSelectionBar() {
+function MenuSelectionBar({
+  elements,
+  selected,
+  handlePress,
+}: MenuSelectionBarProps) {
   return (
-    <ScrollView
-      className="flex-row mb-4 "
+    <FlatList
       horizontal={true}
       contentContainerStyle={{ columnGap: 10 }}
-    >
-      <Text className="text-lg text-[white] font-poppins_bold">
-        Lorem Ipsum
-      </Text>
-      <Text className="text-lg text-[#ffffff96] font-poppins_regular">
-        Consectuor
-      </Text>
-      <Text className="text-lg text-[#ffffff96] font-poppins_regular">
-        Adipiscing
-      </Text>
-      <Text className="text-lg text-[#ffffff96] font-poppins_regular">
-        Aliquam
-      </Text>
-      <Text className="text-lg text-[#ffffff96] font-poppins_regular">
-        Nulla
-      </Text>
-      <Text className="text-lg text-[#ffffff96] font-poppins_regular">
-        Morbi
-      </Text>
-      <Text className="text-lg text-[#ffffff96] font-poppins_regular">
-        Mauris congue
-      </Text>
-      <Text className="text-lg text-[#ffffff96] font-poppins_regular">
-        Pellentesque
-      </Text>
-    </ScrollView>
+      className="flex-row mb-4 "
+      data={elements}
+      renderItem={({ item }) => (
+        <Text
+          className={`text-lg text-[white]  ${
+            selected.value === item.value
+              ? "font-poppins_bold"
+              : "font-poppins_regular"
+          }`}
+          onPress={() => handlePress(item)}
+        >
+          {item.label}
+        </Text>
+      )}
+      keyExtractor={(item) => item.value}
+    />
   );
 }
 
