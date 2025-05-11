@@ -10,6 +10,16 @@ module.exports = {
     colors: {
       textPrimary: "#001F3F",
     },
+    extend: {
+      fontFamily: {
+        poppins_regular: "Poppins_400Regular",
+        poppins_medium: "Poppins_500Medium",
+        poppins_semibold: "Poppins_600SemiBold",
+        poppins_bold: "Poppins_700Bold",
+        poppins_extrabold: "Poppins_800ExtraBold",
+        poppins_black: "Poppins_900Black",
+      },
+    },
   },
   plugins: [],
 };

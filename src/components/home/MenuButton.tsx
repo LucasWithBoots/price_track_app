@@ -12,8 +12,10 @@ function MenuButton({ title, subtitle, icon }: MenuButtonProps) {
     <TouchableOpacity className="bg-[white] h-44 rounded-lg justify-between py-5 px-5 w-[49%]">
       <Ionicons name={icon as any} size={27} color="black" />
       <View>
-        <Text className="text-textPrimary font-semibold text-xl">{title}</Text>
-        <Text className="text-base">{subtitle}</Text>
+        <Text className="text-textPrimary font-poppins_semibold text-xl">
+          {title}
+        </Text>
+        <Text className="text-base font-poppins_regular">{subtitle}</Text>
       </View>
     </TouchableOpacity>
   );
