@@ -1,13 +1,13 @@
-import { LinearGradient } from "expo-linear-gradient";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import MenuButton from "../components/home/MenuButton";
 import MenuSelectionBar from "../components/home/MenuSelectionBar";
 import SearchInput from "../components/home/SearchInput";
+import BackgroundGradient from "../components/layout/BackgroundGradient";
 
-export default function Index() {
+function Index() {
   return (
-    <LinearGradient colors={["#213555", "#A6CDC6"]} className="flex-1">
+    <BackgroundGradient>
       <SafeAreaView className="justify-between flex-1 mt-10">
         <View className="mx-5">
           <Text className="text-[white] text-5xl leading-tight font-poppins_bold">
@@ -27,16 +27,19 @@ export default function Index() {
               title={"Duis pharetra"}
               subtitle={"Sapien at facilisis"}
               icon={"cart-outline"}
+              navigate={"/AddItem"}
             />
             <MenuButton
               title={"Nunc eu"}
               subtitle={"Vestibulum ante"}
               icon={"airplane-outline"}
+              navigate={"/AddItem"}
             />
             <MenuButton
               title={"Fusce ut"}
               subtitle={"Aliquam accumsan"}
               icon={"analytics-outline"}
+              navigate={"/AddItem"}
             />
           </View>
           <View className="mt-7">
@@ -44,6 +47,8 @@ export default function Index() {
           </View>
         </View>
       </SafeAreaView>
-    </LinearGradient>
+    </BackgroundGradient>
   );
 }
+
+export default Index;

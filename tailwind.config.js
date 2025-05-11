@@ -7,6 +7,9 @@ module.exports = {
   ],
   presets: [require("nativewind/preset")],
   theme: {
+    backgroundColor: {
+      buttonPrimary: "#FF4D02",
+    },
     colors: {
       textPrimary: "#001F3F",
     },

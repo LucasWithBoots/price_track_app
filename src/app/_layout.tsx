@@ -11,6 +11,7 @@ import {
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
+import BackgroundGradient from "../components/layout/BackgroundGradient";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -35,10 +36,36 @@ export default function RootLayout() {
   }
 
   return (
-    <Stack
-      screenOptions={{
-        headerShown: false,
-      }}
-    />
+    <BackgroundGradient>
+      <Stack
+        screenOptions={{
+          headerShown: false,
+          contentStyle: { backgroundColor: "transparent" },
+          headerStyle: {
+            backgroundColor: "#213555",
+          },
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontFamily: "Poppins_500Medium",
+            fontSize: 20,
+          },
+          headerTintColor: "white",
+        }}
+      >
+        <Stack.Screen
+          name="index"
+          options={{
+            title: "Index",
+          }}
+        />
+        <Stack.Screen
+          name="AddItem/index"
+          options={{
+            title: "Add Item",
+            headerShown: true,
+          }}
+        />
+      </Stack>
+    </BackgroundGradient>
   );
 }
