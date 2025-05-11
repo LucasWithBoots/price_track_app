@@ -22,16 +22,16 @@ function Index() {
         return (
           <>
             <MenuButton
-              title={"Duis pharetra"}
+              title={"Add new item"}
               subtitle={"Sapien at facilisis"}
               icon={"cart-outline"}
               navigate={"/AddItem"}
             />
             <MenuButton
-              title={"Nunc eu"}
+              title={"List items"}
               subtitle={"Vestibulum ante"}
-              icon={"airplane-outline"}
-              navigate={"/AddItem"}
+              icon={"reorder-three-outline"}
+              navigate={"/ListItems"}
             />
           </>
         );

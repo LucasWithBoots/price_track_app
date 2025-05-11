@@ -57,12 +57,27 @@ export default function RootLayout() {
           name="index"
           options={{
             title: "Index",
+            headerShown: false,
           }}
         />
         <Stack.Screen
           name="AddItem/index"
           options={{
             title: "Add Item",
+            headerShown: true,
+          }}
+        />
+        <Stack.Screen
+          name="ListItems/index"
+          options={{
+            title: "List Items",
+            headerShown: true,
+          }}
+        />
+        <Stack.Screen
+          name="ListItems/[id]"
+          options={{
+            title: "Item Details",
             headerShown: true,
           }}
         />
